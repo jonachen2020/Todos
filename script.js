@@ -4,8 +4,17 @@ var todoList = {
 
     displayTodos: function() {
         console.log('My Todos:')
-        for (var i = 0; i < this.todos.length; i++){
-            console.log(this.todos[i])
+        if (this.todos.length === 0) {
+            console.log('Empty')
+        } else {
+            for (var i = 0; i < this.todos.length; i++){
+                var todo = this.todos[i]
+                if (todo.completion === true) {
+                    console.log('(x)', todo.todoText)
+                } else {
+                    console.log('( )', todo.todoText)
+                }
+            }
         }
     },
 
