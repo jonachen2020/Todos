@@ -16,3 +16,9 @@ function deleteTodo(position) {
     todos.splice(position, 1)
     displayTodos()
 }
+
+function changeTodo(position, newTodo) {
+    todo[position] = newTodo
+    displayTodos()
+}
+
