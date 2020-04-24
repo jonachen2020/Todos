@@ -1,5 +1,6 @@
 var todoList = {
-    todos: ['item 1', 'item 2', 'item 3'],
+
+    todos: [],
 
     displayTodos: function() {
         console.log('My Todos:')
@@ -8,8 +9,11 @@ var todoList = {
         }
     },
 
-    addTodo: function(todo) {
-        this.todos.push(todo)
+    addTodo: function(todoText) {
+        this.todos.push({
+            todoText: todoText,
+            completion: false,
+        })
         this.displayTodos()
     },
 
@@ -18,8 +22,8 @@ var todoList = {
         this.displayTodos()
     },
 
-    changeTodo: function(position, newTodo) {
-        this.todos[position] = newTodo
+    changeTodo: function(position, todoText) {
+        this.todos[position].todoText = todoText
         this.displayTodos()
     },
 }
