@@ -1,6 +1,6 @@
 var todoList = {
 
-    todos: [],
+    todos: [{completion: true, todoText: 'item 1'}, {completion: false, todoText: 'item 2'}],
 
     displayTodos: function() {
         console.log('My Todos:')
@@ -48,11 +48,11 @@ var todoList = {
 
         for (var i = 0; i < totalTodos; i++) {
             if (this.todos[i].completion === true) {
-                totalComplete++
+                totalCompleted++
             }
         }
 
-        if (totalComplete === totalTodos) {
+        if (totalCompleted === totalTodos) {
             for (var i = 0; i < totalTodos; i++) {
                 this.todos[i].completion = false
             }
@@ -61,16 +61,17 @@ var todoList = {
                 this.todos[i].completion = true
             }
         }
+        this.displayTodos()
     },
 }
 
-var displayTodosButton = document.getElementById('displayTodosButton')
-var toggleAllButton = document.getElementById('toggleAllButton')
+var displayTodosButton = document.getElementById("displayTodosButton")
+var toggleAllButton = document.getElementById("toggleAllButton")
 
 displayTodosButton.addEventListener('click', function() { 
     todoList.displayTodos()
 })
 
-toggleAllbutton.addEventListener('click', function() {
+toggleAllButton.addEventListener('click', function() {
     todoList.toggleAll()
 })
