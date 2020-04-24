@@ -61,8 +61,16 @@ var todoList = {
                 this.todos[i].completion = true
             }
         }
-    }
+    },
 }
 
+var displayTodosButton = document.getElementById('displayTodosButton')
+var toggleAllButton = document.getElementById('toggleAllButton')
 
+displayTodosButton.addEventListener('click', function() { 
+    todoList.displayTodos()
+})
 
+toggleAllbutton.addEventListener('click', function() {
+    todoList.toggleAll()
+})
