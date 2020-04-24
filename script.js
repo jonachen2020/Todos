@@ -1,6 +1,6 @@
 var todoList = {
 
-    todos: [{completion: true, todoText: 'item 1'}, {completion: false, todoText: 'item 2'}],
+    todos: [],
 
     displayTodos: function() {
         console.log('My Todos:')
@@ -37,7 +37,7 @@ var todoList = {
     },
 
     toggleCompletion: function(position) {
-        var todo = this.todo[position]
+        var todo = this.todos[position]
         todo.completion = !todo.completion
         this.displayTodos()
     },
@@ -69,12 +69,29 @@ var handlers = {
     displayTodos: function() {
         todoList.displayTodos()
     },
-    toggleAll: function() {
-        todoList.toggleAll()
-    },
     addTodo: function() {
         var addTodoTextInput = document.getElementById('addTodoTextInput')
         todoList.addTodo(addTodoTextInput.value)
         addTodoTextInput.value = ''
-    }
+    },
+    deleteTodo: function() {
+        var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput') 
+        todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber)
+        deleteTodoPositionInput.value = ''
+    },
+    changeTodo: function() {
+        var changeTodoTextInput = document.getElementById('changeTodoTextInput')
+        var changeTodoPositionInput = document.getElementById('changeTodoPositionInput')
+        todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value)
+        changeTodoTextInput.value = ''
+        changeTodoPositionInput.value = ''
+    },
+    toggleCompletion: function() {
+        var toggleCompletionPositionInput = document.getElementById('toggleCompletionPositionInput')
+        todoList.toggleCompletion(toggleCompletionPositionInput.valueAsNumber)
+        toggleCompletionPositionInput.value = ''
+    },
+    toggleAll: function() {
+        todoList.toggleAll()
+    },
 }
